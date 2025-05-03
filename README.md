@@ -44,11 +44,11 @@ python scripts/create_sample_data.py \
  --id_column SUBJECT_ID
 ```
 where
-input_dir - location of full dataset
-output_dir - direcoty where corresponsing files for fixed number of patients will be created
-patient_file - name of main patient file, default - PATIENTS.csv
-num_of_patients - number of patients to be included in sample dataset, default 3500
-id_column - column corresponding to patient id, default - SUBJECT_ID
+- input_dir - location of full dataset
+- output_dir - direcoty where corresponsing files for fixed number of patients will be created
+- patient_file - name of main patient file, default - PATIENTS.csv
+- num_of_patients - number of patients to be included in sample dataset, default 3500
+- id_column - column corresponding to patient id, default - SUBJECT_ID
 
  
 
