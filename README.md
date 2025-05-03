@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ```
 
 ## Step 1a: Create sample dataset from MIMIC3 dataset
-- To gain access to MIMIC-III dataset, please register https://physionet.org, complete required CITI training and follow instructions to gain access. Once access is granted data can be downloaded as ZIP file or using your terminal with following command
+- To gain access to MIMIC-III dataset, please register at https://physionet.org, complete required CITI training and follow instructions to gain access. Once access is granted data can be downloaded as ZIP file or using your terminal with following command
  ```
   wget -r -N -c -np --user adafe2 --ask-password https://physionet.org/files/mimiciii/1.4/
   ```
