@@ -33,7 +33,7 @@ pip install -r requirements.txt
 - Gain access to MIMIC3 dataset following <>
 - Steps to run :
 
-python create_sample_data.py \
+python scripts/create_sample_data.py \
  --input_dir /home/adafe/mimic-iii-clinical-database-1.4/mimic-iii-clinical-database-1.4 \
  --output_dir /home/adafe/mimic-iii-clinical-database-1.4/mimic-iii-clinical-database-1.4/selected \
  --patient_file PATIENTS.csv \
