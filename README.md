@@ -30,15 +30,27 @@ pip install -r requirements.txt
 ```
 
 ## Step 1a: Create sample dataset from MIMIC3 dataset
-- Gain access to MIMIC3 dataset following <>
-- Steps to run :
-
+- To gain access to MIMIC-III dataset, please register https://physionet.org, complete required CITI training and follow instructions to gain access. Once access is granted data can be downloaded as ZIP file or using your terminal with following command
+- ```
+  wget -r -N -c -np --user adafe2 --ask-password https://physionet.org/files/mimiciii/1.4/
+  ```
+- Steps to generate sample dataset using complete dataset :
+```
 python scripts/create_sample_data.py \
  --input_dir /home/adafe/mimic-iii-clinical-database-1.4/mimic-iii-clinical-database-1.4 \
  --output_dir /home/adafe/mimic-iii-clinical-database-1.4/mimic-iii-clinical-database-1.4/selected \
  --patient_file PATIENTS.csv \
  --num_of_patients 3500 \
  --id_column SUBJECT_ID
+```
+where
+input_dir - location of full dataset
+output_dir - direcoty where corresponsing files for fixed number of patients will be created
+patient_file - name of main patient file, default - PATIENTS.csv
+num_of_patients - number of patients to be included in sample dataset, default 3500
+id_column - column corresponding to patient id, default - SUBJECT_ID
+
+ 
 
 ## Step 1b: Data processing
 Reads in the tables from MIMIC and pregenerates data for clinical BERT pretraining. Reads in the cohorts defined by MIMIC-benchmarks and creates tasks for finetuning on downstream targets.
