@@ -34,6 +34,7 @@ pip install -r requirements.txt
  ```
   wget -r -N -c -np --user adafe2 --ask-password https://physionet.org/files/mimiciii/1.4/
   ```
+Replace adafe2 with your user name and enter password when prompted.
 - Steps to generate sample dataset using complete dataset :
 ```
 python scripts/create_sample_data.py \
