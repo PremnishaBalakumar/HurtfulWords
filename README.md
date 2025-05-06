@@ -80,6 +80,7 @@ Generates static BERT representations for the downstream tasks created in Step 1
 Evalutes test-set predictions of the trained models, by generating various fairness metrics.
 - Download pretrained model suggested above.
 - In `bash_scripts/analyze_results.sh`, update `MODEL_ROOT_DIR`, `INHOSP_MORT_PATH`, `PHENOTYPE_ALL_PATH`, `PHENOTYPE_FIRST_PATH` and `output_path`. Run this script, which will output a .csv file containing fairness metrics for each model.
+- EXTENSION: As an extension to compare metrics, implemented `mask_demographics` method that masks demographics data like gender, age to compare pre-trained model metrics for biases.
 
 ## Step 6: Compute fairness metrics for subgroups
 - Download pretrained model suggested above.
