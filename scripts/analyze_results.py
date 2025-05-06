@@ -111,7 +111,7 @@ def evaluate_model(model, tokenizer, dataset, target, threshold=0.5):
     y_pred_labels = np.array(y_pred_labels)
 
     metrics = calculate_metrics(y_true, y_pred_probs, threshold=threshold)
-
+    print (metrics)
     return metrics
 
 def format_results(results_df):
@@ -166,6 +166,15 @@ def format_results(results_df):
     
     return formatted_df
 
+def mask_demographics(batch):
+    # Mask/neutralize demographic inputs
+    batch['age'] = 0
+    batch['gender'] = 'UNK'
+    batch['ethnicity_to_use'] = 'UNK'
+    batch['insurance'] = 'UNK'
+    batch['language_to_use'] = 'UNK'
+    return batch
+
 def main():
     inhosp_mort, phenotype_all, phenotype_first = load_data()
 
@@ -189,6 +198,7 @@ def main():
 
         model, tokenizer = load_model(model_path)
         for dataset_name, (dataset, target_name) in test_dataset_target.items():
+            # dataset = dataset.apply(mask_demographics, axis=1)
             print(f"\nEvaluating on {dataset_name} Dataset")
             metrics = evaluate_model(model, tokenizer, dataset, target_name)
 
@@ -203,8 +213,7 @@ def main():
 
 
     df = pd.DataFrame(results)
-    # df.to_csv(output_csv_path, index=False)
-
+    df.to_csv(output_csv_path, index=False)
     formatted_df = format_results(df)
     formatted_df.to_csv(formatted_output_path, index=False)
 
